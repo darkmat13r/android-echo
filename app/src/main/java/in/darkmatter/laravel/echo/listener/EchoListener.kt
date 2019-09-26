@@ -1,10 +1,8 @@
 package `in`.darkmatter.laravel.echo.listener
 
 import `in`.darkmatter.laravel.echo.data.EchoData
-import `in`.darkmatter.laravel.echo.data.Message
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.internal.LinkedTreeMap
 import com.google.gson.reflect.TypeToken
 
 abstract class EchoListener<T> {
