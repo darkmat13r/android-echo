@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':laravel_echo'
 rootProject.name='LaravelEcho'

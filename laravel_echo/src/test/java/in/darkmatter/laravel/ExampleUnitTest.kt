@@ -1,4 +1,4 @@
-package `in`.darkmatter.laravel.echo
+package `in`.darkmatter.laravel
 
 import org.junit.Test
 

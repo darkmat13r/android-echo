@@ -1,4 +1,4 @@
-package `in`.darkmatter.laravel.echo
+package `in`.darkmatter.laravel
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("in.darkmatter.laravel.echo", appContext.packageName)
+        assertEquals("in.darkmatter.laravel_echo.test", appContext.packageName)
     }
 }
