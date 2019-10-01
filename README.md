@@ -36,29 +36,44 @@ Add it in your root build.gradle at the end of repositories:
     options.host = "http://your_laravel_project_url:port"  
     val echo = Echo(options)
 ```
+**Disconnect**
+```css
+
+    override fun onDestroy() {  
+        super.onDestroy()  
+        echo.disconnect()  
+    }
+
+```
+
 **Private Channel**
 Subscribing to a public channel
 ```css
-echo.channel("public_channel_name")  
-    ?.listen("post", object :EchoListener<LinkedTreeMap<String, Any>>(){  
-        override fun onDataReceived(data: LinkedTreeMap<String, Any>?) {  
-            requireActivity().runOnUiThread {  
-                //TODO: Put your code here
-	     } 
-	  }  
-    })
+
+    echo.channel("public_channel_name")  
+        ?.listen("post", object :EchoListener<LinkedTreeMap<String, Any>>(){  
+            override fun onDataReceived(data: LinkedTreeMap<String, Any>?) {  
+                requireActivity().runOnUiThread {  
+                    //TODO: Put your code here
+    	     } 
+    	  }  
+        })
+
 ```
 
 **Private Channel**
 Subscribing to a private channel. 
 ```css
-    echo.private("chat.${1}")  
-        ?.listen("chat", object:EchoListener<LinkedTreeMap<String, Any>>(){  
-            override fun onDataReceived(data: LinkedTreeMap<String,Any>?) {  
-                Log.e(TAG, "On data received ${data}")  
-                requireActivity().runOnUiThread {  
-                //TODO: Put your code here
-	             }  
-	  }  
-   })
-  ``
+
+     echo.private("chat.${1}")  
+            ?.listen("chat", object:EchoListener<LinkedTreeMap<String, Any>>(){  
+                override fun onDataReceived(data: LinkedTreeMap<String,Any>?) {  
+                    Log.e(TAG, "On data received ${data}")  
+                    requireActivity().runOnUiThread {  
+                    //TODO: Put your code here
+    	             }  
+    	  }  
+       })
+
+  ```
+
