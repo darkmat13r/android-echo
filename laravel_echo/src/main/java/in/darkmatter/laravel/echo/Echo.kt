@@ -59,6 +59,13 @@ class Echo(private val options: Connector.Options) {
         return this.connector?.listen(channel, event, callback)
     }
 
+
+    /**
+     * Get a public channel instance by name
+     */
+    fun channel(channel: String):Channel?{
+        return this.connector?.channel(channel)
+    }
     /**
      * Get a private channel instance by name
      */
