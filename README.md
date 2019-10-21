@@ -77,3 +77,4 @@ Subscribing to a private channel.
 
   ```
 
+ 
