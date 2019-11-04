@@ -82,13 +82,14 @@ open class SocketIOChannel(
      * Bind the channel's socket to an event and store the callback
      */
     fun <T> on(event: String, callback: EchoListener<T>) {
+        val name = this.eventFormatter.format(event)
+        Log.e(TAG, "Event Name ${name}")
         val listener = Emitter.Listener {
-            Log.e(TAG, "Data ${it[1]}")
             if (it.size > 1)
                 callback.submitData(it[1])
         }
-        this.socket.on(event, listener)
-        this.bind(event, listener)
+        this.socket.on(name, listener)
+        this.bind(name, listener)
     }
 
     /**

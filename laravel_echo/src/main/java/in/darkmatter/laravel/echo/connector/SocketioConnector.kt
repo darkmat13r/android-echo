@@ -79,8 +79,9 @@ class SocketioConnector(private val options: Options) : Connector(options) {
 
     override fun leave(channel: String) {
         val channels = listOf<String>(channel,"private-$channel", "presence-$channel")
-        channels.forEach {
-            leaveChannel(it)
+        val iterator = channels.iterator()
+        while(iterator.hasNext()){
+            leaveChannel(iterator.next())
         }
     }
 
