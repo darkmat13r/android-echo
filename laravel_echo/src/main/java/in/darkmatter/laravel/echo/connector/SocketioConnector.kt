@@ -36,6 +36,12 @@ class SocketioConnector(private val options: Options) : Connector(options) {
             socket?.on(Event.CONNECT_ERROR) {
                 Log.e(TAG, "CONNECT_ERROR ${Gson().toJson(it)}")
             }
+            socket?.on(Event.CONNECT){
+                Log.e(TAG, "CONNECT ${Gson().toJson(it)}")
+            }
+            socket?.on(Event.DISCONNECT){
+                Log.e(TAG, "DISCONNECT ${Gson().toJson(it)}")
+            }
         } catch (exception: URISyntaxException) {
             exception.printStackTrace()
         }
