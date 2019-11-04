@@ -1,7 +1,7 @@
 package `in`.darkmatter.laravel.echo.channel
 
 import `in`.darkmatter.laravel.echo.connector.Connector
-import com.github.nkzawa.socketio.client.Socket
+import io.socket.client.Socket
 
 open class SocketIoPrivateChannel(
     private val socket: Socket,

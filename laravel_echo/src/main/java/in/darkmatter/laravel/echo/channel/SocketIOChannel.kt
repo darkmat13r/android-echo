@@ -5,8 +5,8 @@ import `in`.darkmatter.laravel.echo.constants.Event
 import `in`.darkmatter.laravel.echo.listener.EchoListener
 import `in`.darkmatter.laravel.echo.util.EventFormatter
 import android.util.Log
-import com.github.nkzawa.emitter.Emitter
-import com.github.nkzawa.socketio.client.Socket
+import io.socket.client.Socket
+import io.socket.emitter.Emitter
 import org.json.JSONObject
 
 

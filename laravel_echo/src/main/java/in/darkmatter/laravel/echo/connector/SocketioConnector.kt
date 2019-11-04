@@ -5,14 +5,14 @@ import `in`.darkmatter.laravel.echo.channel.SocketIOChannel
 import `in`.darkmatter.laravel.echo.channel.SocketIoPrivateChannel
 import `in`.darkmatter.laravel.echo.constants.Event
 import `in`.darkmatter.laravel.echo.listener.EchoListener
-import com.github.nkzawa.socketio.client.IO
-import com.github.nkzawa.socketio.client.Socket
 import java.lang.Exception
 import java.net.URISyntaxException
 import android.R.attr.name
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import io.socket.client.IO
+import io.socket.client.Socket
 
 
 class SocketioConnector(private val options: Options) : Connector(options) {

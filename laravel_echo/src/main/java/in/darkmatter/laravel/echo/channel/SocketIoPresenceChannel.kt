@@ -2,7 +2,7 @@ package `in`.darkmatter.laravel.echo.channel
 
 import `in`.darkmatter.laravel.echo.connector.Connector
 import `in`.darkmatter.laravel.echo.listener.EchoListener
-import com.github.nkzawa.socketio.client.Socket
+import io.socket.client.Socket
 
 class SocketIoPresenceChannel(private val socket: Socket,
                               private val name: String,
