@@ -64,7 +64,7 @@ open class SocketIOChannel(
      * Listen for an event on the channel instance
      */
     override fun <T> listen(event: String, callback: EchoListener<T>): SocketIOChannel {
-        this.on(event, callback)
+        this.on(eventFormatter.format(event), callback)
         return this
     }
 
@@ -82,14 +82,12 @@ open class SocketIOChannel(
      * Bind the channel's socket to an event and store the callback
      */
     fun <T> on(event: String, callback: EchoListener<T>) {
-        val name = this.eventFormatter.format(event)
-        Log.e(TAG, "Event Name ${name}")
         val listener = Emitter.Listener {
             if (it.size > 1)
                 callback.submitData(it[1])
         }
-        this.socket.on(name, listener)
-        this.bind(name, listener)
+        this.socket.on(event, listener)
+        this.bind(event, listener)
     }
 
     /**
@@ -107,10 +105,12 @@ open class SocketIOChannel(
      * Unbind the channel's socket from all stored event callback
      */
     fun unbind() {
-        events.forEach { (event, listener) ->
-            this.socket.off(event, listener)
-            events.remove(event)
+        val iterator = events.iterator()
+        while(iterator.hasNext()){
+            val item =  iterator.next()
+            this.socket.off(item.key, item.value)
         }
+        events.clear()
     }
 
     /**
